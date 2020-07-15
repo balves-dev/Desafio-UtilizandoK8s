@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-desafio-utilizandok8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-desafio-utilizandok8s
+  template:
+    metadata:
+      labels:
+        app: nginx-desafio-utilizandok8s
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18-alpine
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            name: nginx-index
+            readOnly: true
+      
+      volumes:
+      - name: nginx-index
+        configMap:
+          name: nginx-index
+          items:
+            - key: nginx.index
+              path: index.html
