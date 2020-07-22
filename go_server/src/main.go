@@ -1,19 +1,12 @@
 package main
 
-// package greeting
-
-// package /.app.go
-
 import (
+	"greeting/greeting"
 	"net/http"
 )
 
-// func greeting(message string) byte {
-// 	fmt.Fprint(w, message)
-// }
-
 func handler(w http.ResponseWriter, r *http.Request) {
-	// greeting("Code.education Rocks!")
+	greeting.Greeting(w, "<b> Code.education Rocks! </b>")
 	// greeting.greeting("Code.education Rocks!")
 
 }

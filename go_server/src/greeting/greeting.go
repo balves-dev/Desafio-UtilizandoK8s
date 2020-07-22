@@ -1,11 +1,10 @@
-package mensagem
+package greeting
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
-// func greeting() {
-// 	fmt.Println("Code.education Rocks!")
-// }
-
-func greeting(message string) byte {
-	return fmt.Fprint(w, message)
+func Greeting(w http.ResponseWriter, message string) {
+	fmt.Fprint(w, message)
 }
