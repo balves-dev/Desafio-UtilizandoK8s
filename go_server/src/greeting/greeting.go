@@ -1,10 +1,6 @@
 package greeting
 
-import (
-	"fmt"
-	"net/http"
-)
-
-func Greeting(w http.ResponseWriter, message string) {
-	fmt.Fprint(w, message)
+// Greeting - função para retornar mensagem
+func Greeting(message string) string {
+	return "<b>" + message + "</b>"
 }

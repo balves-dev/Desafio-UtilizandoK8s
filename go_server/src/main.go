@@ -3,11 +3,11 @@ package main
 import (
 	"greeting/greeting"
 	"net/http"
+	"fmt"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	greeting.Greeting(w, "<b> Code.education Rocks! </b>")
-	// greeting.greeting("Code.education Rocks!")
+func handler(w http.ResponseWriter, r *http.Request) { 
+	fmt.Fprint(w, greeting.Greeting("Code.education Rocks!"))
 
 }
 
