@@ -1,11 +1,13 @@
 FROM golang:1.14-alpine as builder
 
-WORKDIR /go/src
-COPY ./src/ .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-w -extldflags "-static"' -o src
-RUN ls
+WORKDIR /app
+COPY src/main.go .
+
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /app/myapp .
 
 FROM scratch
-COPY --from=builder  /go/src .
+COPY --from=builder /app/myapp .
 
-CMD [ "./src" ]
+EXPOSE 8000
+
+CMD [ "./myapp" ]
