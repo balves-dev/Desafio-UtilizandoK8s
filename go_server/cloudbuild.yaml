@@ -1,13 +1,13 @@
 steps:
 - id: go_test
   name: 'gcr.io/cloud-builders/go'
-  args: ['test','./go']
-  env: ['GOPATH=/src/.','CGO_ENABLED=0']
+  args: ['test','src/main_test.go']
+  env: ['GOPATH=.','CGO_ENABLED=0']
 
 - id: go_build
   name: 'gcr.io/cloud-builders/go'
   args: ['build', '-o', './go', './go']
-  env: ['GOPATH=/src/.']
+  env: ['GOPATH=.']
 
 - id: docker_build
   name: 'gcr.io/cloud-builders/docker'
