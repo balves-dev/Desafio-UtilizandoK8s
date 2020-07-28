@@ -7,8 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) { 
-	fmt.Fprint(w, greeting.Greeting("Code.education Rocks!"))
-
+	fmt.Fprint(w, greeting.Greeting(r.URL.Path[1:]))
 }
 
 func main() {
