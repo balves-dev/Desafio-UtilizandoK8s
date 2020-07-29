@@ -1,5 +1,4 @@
 steps:
-steps:
   - id: go_mod_init
     name: 'golang'
     args: ['go', 'mod', 'init', 'main']
