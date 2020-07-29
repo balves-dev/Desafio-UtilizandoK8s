@@ -1,17 +1,8 @@
 steps:
-  - id: go_mod_init
-    name: 'golang'
-    args: ['go', 'mod', 'init', 'main']
-
   - id: go_test
     name: 'gcr.io/cloud-builders/go'
-    args: ['test','.']
+    args: ['test','./go']
     env: ['GOPATH=.','CGO_ENABLED=0']
-
-  # - id: go_test
-  #   name: 'gcr.io/cloud-builders/go'
-  #   args: ['test','./go']
-  #   env: ['GOPATH=.','CGO_ENABLED=0']
 
   - id: go_build
     name: 'gcr.io/cloud-builders/go'
